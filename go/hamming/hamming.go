@@ -1,6 +1,8 @@
 package hamming
 
-import "errors"
+import (
+	"errors"
+)
 
 // Distance counts the number of differences at a single
 // nucleotide between two DNA strands.
@@ -12,7 +14,9 @@ func Distance(a, b string) (int, error) {
 	}
 	var diffs int
 	for i := 0; i < len(a); i++ {
-		if a[i] != b[i] {
+		var abyte = byte(a[i])
+		var bbyte = byte(b[i])
+		if abyte != bbyte {
 			diffs++
 		}
 	}
