@@ -1,16 +1,13 @@
 package scrabble
 
-import (
-	"strings"
-)
+import "unicode"
 
 func Score(word string) int {
-	word = strings.ToUpper(word)
 	var total int
 	// For each character, find its value and multiply by
 	// The number of times it occurs in the string
 	for _, w := range word {
-		switch w {
+		switch unicode.ToUpper(w) {
 		case 'D', 'G':
 			total += 2
 		case 'B', 'C', 'M', 'P':
