@@ -6,12 +6,14 @@ import (
 	"strings"
 )
 
+// Regular expression to find individual words in the string.
+var re = regexp.MustCompile(`([[:alpha:]]+('s)?)`)
+
 // Abbreviate accepts a string input s and returns the acronym for it.
 func Abbreviate(s string) string {
 	if len(s) == 0 {
 		return ""
 	}
-	re := regexp.MustCompile(`([[:alpha:]]+('s)?)`)
 	words := re.FindAllString(s, -1)
 	var acronym string
 	for _, v := range words {
